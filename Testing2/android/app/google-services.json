@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "876982572932",
+    "firebase_url": "https://kishan-otp-default-rtdb.firebaseio.com",
+    "project_id": "kishan-otp",
+    "storage_bucket": "kishan-otp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876982572932:android:b47bb49430ac4eb3c0efd1",
+        "android_client_info": {
+          "package_name": "com.ss.kishan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876982572932-p92qaivc8hgbqr3fddgfcut2hj9a6vso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ss.kishan",
+            "certificate_hash": "a0771c75bfb7e73459bc738062bb5424aeb43167"
+          }
+        },
+        {
+          "client_id": "876982572932-k6qavadv0pvloojt2aamonlpu72mg4oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6--AigNH5udBxqmHg-LyWUqCHxOFWbCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876982572932-k6qavadv0pvloojt2aamonlpu72mg4oa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
