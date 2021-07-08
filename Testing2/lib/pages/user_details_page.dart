@@ -1,9 +1,10 @@
 
 import 'package:Testing2/pages/menu_containt_page.dart';
 import 'package:Testing2/text/text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'AgreementDialog.dart' as fullAgreementDialog;
 
 class UserDetails extends StatefulWidget {
   UserDetails({Key key,this.userId}):super(key : key);
@@ -21,6 +22,8 @@ class _UserDetails extends State<UserDetails> {
  // TextEditingController phoneController = TextEditingController();
   String _chosenDistrictValue;
   String _chosenBlockValue;
+  // By defaut, the checkbox is unchecked and "agree" is "false"
+  bool agree = false;
   var otp =00000;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -191,6 +194,31 @@ class _UserDetails extends State<UserDetails> {
                         },
                     )),
 
+                Container(
+                  height: 50,
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  child:  RichText(
+                      text: TextSpan(
+
+                          children: <TextSpan>[
+                      TextSpan(text: 'By clicking Submit, you agree to our ',
+                        style: TextStyle(color:Colors.black)),
+                      TextSpan(
+                          text: 'Terms of Service',
+                          style: TextStyle(color:Colors.blue),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print('Terms of Service"');
+                              _openAgreeDialog(context);
+                            })
+                  ])
+
+                  )
+                ),
+
+
+
+
               ],
             )));
   }
@@ -232,4 +260,27 @@ class _UserDetails extends State<UserDetails> {
       },
     );
   }
+  // This function is triggered when the button is clicked
+  void _doSomething(String result, context){
+    // Do something
+    print('agree');
+  }
+  void _onAgree()
+  {
+
+  }
+  Future _openAgreeDialog(context) async {
+    String result = await Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) {
+          return fullAgreementDialog.CreateAgreement();
+        },
+        //true to display with a dismiss button rather than a return navigation arrow
+        fullscreenDialog: true));
+    if (result != null) {
+      _doSomething(result, context);
+    } else {
+      print('you could do another action here if they cancel');
+    }
+  }
+
 }
