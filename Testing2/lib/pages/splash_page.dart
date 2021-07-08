@@ -1,3 +1,4 @@
+import 'package:Testing2/integration/user_authentication.dart';
 import 'package:Testing2/pages/login_page.dart';
 import 'package:Testing2/text/text.dart';
 import 'package:Testing2/theme/light_color.dart';
@@ -18,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 2)).then((_) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginPage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginPage(auth:new UserAuthentication())));
     });
     super.initState();
   }

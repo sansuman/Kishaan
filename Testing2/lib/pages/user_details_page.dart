@@ -6,14 +6,21 @@ import 'package:flutter/services.dart';
 
 
 class UserDetails extends StatefulWidget {
+  UserDetails({Key key,this.userId}):super(key : key);
+  final String userId;
   @override
   _UserDetails createState() => _UserDetails();
 }
 
 class _UserDetails extends State<UserDetails> {
-  TextEditingController mobileController = TextEditingController();
-  TextEditingController otpController = TextEditingController();
-  String _chosenValue;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController alterPhoneController = TextEditingController();
+  TextEditingController villageController = TextEditingController();
+  TextEditingController pinCodeController = TextEditingController();
+ // TextEditingController phoneController = TextEditingController();
+  String _chosenDistrictValue;
+  String _chosenBlockValue;
   var otp =00000;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -38,13 +45,13 @@ class _UserDetails extends State<UserDetails> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      'User Details',
+                      'User Details\t',
                       style: TextStyle(fontSize: 20),
                     )),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: mobileController,
+                    controller: nameController,
 
                     maxLength: 10,
                     maxLengthEnforced: true,
@@ -58,7 +65,7 @@ class _UserDetails extends State<UserDetails> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: mobileController,
+                    controller: phoneController,
                     enabled: false,
                     maxLength: 10,
                     maxLengthEnforced: true,
@@ -73,7 +80,7 @@ class _UserDetails extends State<UserDetails> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: mobileController,
+                    controller: alterPhoneController,
                     maxLength: 10,
                     maxLengthEnforced: true,
                     decoration: InputDecoration(
@@ -87,7 +94,7 @@ class _UserDetails extends State<UserDetails> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: mobileController,
+                    controller: villageController,
                     maxLengthEnforced: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -101,7 +108,7 @@ class _UserDetails extends State<UserDetails> {
                   child: DropdownButton<String>(
 
                     focusColor:Colors.white,
-                    value: _chosenValue,
+                    value: _chosenDistrictValue,
                     elevation: 5,
                     iconEnabledColor:Colors.black,
                     items: <String>[
@@ -123,7 +130,7 @@ class _UserDetails extends State<UserDetails> {
                     ),
                     onChanged: (String value) {
                       setState(() {
-                        _chosenValue = value;
+                        _chosenDistrictValue = value;
                       });
                     },
                   ),
@@ -133,7 +140,7 @@ class _UserDetails extends State<UserDetails> {
                   child: DropdownButton<String>(
 
                     focusColor:Colors.white,
-                    value: _chosenValue,
+                    value: _chosenBlockValue,
                     elevation: 5,
                     iconEnabledColor:Colors.black,
                     items: <String>[
@@ -151,11 +158,11 @@ class _UserDetails extends State<UserDetails> {
                       );
                     }).toList(),
                     hint:Text(
-                      "Please choose a District Name",
+                      "Please choose a Block Name",
                     ),
                     onChanged: (String value) {
                       setState(() {
-                        _chosenValue = value;
+                        _chosenBlockValue = value;
                       });
                     },
                   ),
@@ -164,7 +171,7 @@ class _UserDetails extends State<UserDetails> {
                   padding: EdgeInsets.all(10),
                   child: TextField(
                     obscureText: true,
-                    controller: otpController,
+                    controller: pinCodeController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Pin Code",
